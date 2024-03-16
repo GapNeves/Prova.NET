@@ -12,5 +12,4 @@ public class Estimate
     public string? ClientName { get; set; }
     [ForeignKey("PieceId")]
     public int PieceId { get; set; }
-    public string? NamePiece { get; set; }
 }
