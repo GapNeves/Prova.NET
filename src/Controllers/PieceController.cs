@@ -18,23 +18,7 @@ namespace src.Controllers
         {
             _logger = logger;
             _context = context;
-        }
-        [HttpGet(Name = "GetAllPiece")]
-        public async Task<IActionResult> GetPiece()
-        {
-            var piece = new Piece()
-            {
-                Store = 10,
-                NamePiece = "Vela do Marea",
-                State = 0
-            };
-
-            _context.Add(piece);
-            await _context.SaveChangesAsync();
-
-            var allPieces = await _context.Pieces.ToListAsync();
-            return Ok(allPieces);
-        }
+        }    
     }
 
 }
