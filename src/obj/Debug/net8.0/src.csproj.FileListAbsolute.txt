@@ -1,0 +1,8 @@
+/home/gabriel/Documentos/Projetos/prova.NET/src/obj/Debug/net8.0/src.csproj.AssemblyReference.cache
+/home/gabriel/Documentos/Projetos/prova.NET/src/obj/Debug/net8.0/src.GeneratedMSBuildEditorConfig.editorconfig
+/home/gabriel/Documentos/Projetos/prova.NET/src/obj/Debug/net8.0/src.AssemblyInfoInputs.cache
+/home/gabriel/Documentos/Projetos/prova.NET/src/obj/Debug/net8.0/src.AssemblyInfo.cs
+/home/gabriel/Documentos/Projetos/prova.NET/src/obj/Debug/net8.0/src.csproj.CoreCompileInputs.cache
+/home/gabriel/Documentos/Projetos/prova.NET/src/obj/Debug/net8.0/src.MvcApplicationPartsAssemblyInfo.cs
+/home/gabriel/Documentos/Projetos/prova.NET/src/obj/Debug/net8.0/src.MvcApplicationPartsAssemblyInfo.cache
+/home/gabriel/Documentos/Projetos/prova.NET/src/obj/Debug/net8.0/src.sourcelink.json
