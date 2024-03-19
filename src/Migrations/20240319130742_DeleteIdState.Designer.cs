@@ -11,8 +11,8 @@ using src.Data;
 namespace src.Migrations
 {
     [DbContext(typeof(ApiDbContext))]
-    [Migration("20240316222338_initial-migration")]
-    partial class initialmigration
+    [Migration("20240319130742_DeleteIdState")]
+    partial class DeleteIdState
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -24,7 +24,7 @@ namespace src.Migrations
 
             NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
 
-            modelBuilder.Entity("Prova.Models.Estimate", b =>
+            modelBuilder.Entity("src.Models.Estimate", b =>
                 {
                     b.Property<int>("EstimateId")
                         .ValueGeneratedOnAdd()
@@ -35,21 +35,16 @@ namespace src.Migrations
                     b.Property<string>("ClientName")
                         .HasColumnType("text");
 
-                    b.Property<int>("Number")
-                        .HasColumnType("integer");
-
-                    b.Property<int>("PieceId")
-                        .HasColumnType("integer");
-
-                    b.Property<int>("Plate")
-                        .HasColumnType("integer");
+                    b.Property<string>("Plate")
+                        .IsRequired()
+                        .HasColumnType("text");
 
                     b.HasKey("EstimateId");
 
                     b.ToTable("Estimates");
                 });
 
-            modelBuilder.Entity("Prova.Models.Piece", b =>
+            modelBuilder.Entity("src.Models.Piece", b =>
                 {
                     b.Property<int>("PieceId")
                         .ValueGeneratedOnAdd()
@@ -60,15 +55,31 @@ namespace src.Migrations
                     b.Property<string>("NamePiece")
                         .HasColumnType("text");
 
-                    b.Property<int>("State")
-                        .HasColumnType("integer");
-
                     b.Property<int>("Store")
                         .HasColumnType("integer");
 
                     b.HasKey("PieceId");
 
                     b.ToTable("Pieces");
+                });
+
+            modelBuilder.Entity("src.Models.State", b =>
+                {
+                    b.Property<int>("EstimateId")
+                        .HasColumnType("integer");
+
+                    b.Property<int>("PieceId")
+                        .HasColumnType("integer");
+
+                    b.Property<int>("Quantity")
+                        .HasColumnType("integer");
+
+                    b.Property<int>("Status")
+                        .HasColumnType("integer");
+
+                    b.HasKey("EstimateId", "PieceId");
+
+                    b.ToTable("States");
                 });
 #pragma warning restore 612, 618
         }
