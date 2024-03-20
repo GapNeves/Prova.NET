@@ -11,11 +11,11 @@ namespace src.Controllers
     public class EstimateController : Controller
     {
         private readonly ILogger<EstimateController> _logger;
-        private readonly EstimateRepository _repository;
+        private readonly IEstimateRepository _repository;
 
         public EstimateController(
             ILogger<EstimateController> logger,
-            EstimateRepository repository)
+            IEstimateRepository repository)
         {
             _logger = logger;
             _repository = repository;

@@ -4,10 +4,10 @@ using src.Context;
 
 namespace src.Repository
 {
-    public class EstimateRepository
+    public class EstimateRepository : IEstimateRepository
     {
-        protected readonly ApiDbContext _context;
-        public EstimateRepository(ApiDbContext context)
+        protected readonly IApiDbContext _context;
+        public EstimateRepository(IApiDbContext context)
         {
             _context = context;
         }
@@ -22,6 +22,19 @@ namespace src.Repository
             });
 
             return estimates;
+        }
+
+        public EstimateDto AddEstimate(Estimate estimate)
+        {
+            _context.Estimates.Add(estimate);
+            _context.SaveChanges();
+
+            throw new NotImplementedException();
+        }
+
+        public EstimateDto UpdateEstimate(Estimate estimate)
+        {
+            throw new NotImplementedException();
         }
     }
 }

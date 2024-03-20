@@ -14,6 +14,6 @@ public class BudgetPart
     public int PieceId { get; set; }
     public int Quantity { get; set; }
     public TypeState Status { get; set; }
-    public Estimate Estimate { get; set; }
-    public Piece Piece { get; set; }
+    public Estimate? Estimate { get; set; }
+    public Piece? Piece { get; set; }
 }

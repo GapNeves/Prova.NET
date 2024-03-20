@@ -13,5 +13,5 @@ public class Shift
     public int Quantity { get; set; }
     public TypeShift MovimentType { get; set; }
     public DateTime Date { get; set; }
-    public Piece Piece { get; set; }
+    public Piece? Piece { get; set; }
 }

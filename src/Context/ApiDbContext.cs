@@ -3,7 +3,7 @@ using src.Models;
 
 namespace src.Context;
 
-public class ApiDbContext : DbContext
+public class ApiDbContext : DbContext, IApiDbContext
 {
     public DbSet<Estimate> Estimates { get; set; }
     public DbSet<Piece> Pieces { get; set; }
@@ -12,11 +12,11 @@ public class ApiDbContext : DbContext
 
     public ApiDbContext(DbContextOptions<ApiDbContext> options) : base(options){}
 
-    public ApiDbContext() { }
+    public ApiDbContext() {}
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
-        if (optionsBuilder.IsConfigured) return;
+        // if (optionsBuilder.IsConfigured) return;
     }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)

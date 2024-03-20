@@ -11,11 +11,11 @@ namespace src.Controllers
     public class PieceController : Controller
     {
         private readonly ILogger<PieceController> _logger;
-        private readonly PieceRepository _repository;
+        private readonly IPieceRepository _repository;
         
         public PieceController(
             ILogger<PieceController> logger,
-            PieceRepository repository)
+            IPieceRepository repository)
         {
             _logger = logger;
             _repository = repository;
