@@ -1,11 +1,18 @@
-namespace src.Enums;
-
-public enum TypeState
+namespace src.Enums
 {
-    //0 = disponivel
-    available = 0,
-    //1 = esperando
-    peding = 1,
-    //2 = enviado
-    send = 2,
+    public enum TypeState
+    {
+        //1 = esperando
+        wait = 1,
+        //2 = enviado
+        send = 2,
+    }
+
+    public enum TypeShift
+    {
+        //entrada
+        entry,
+        //saida
+        exit,
+    }
 }

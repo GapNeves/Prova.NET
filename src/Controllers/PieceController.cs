@@ -1,23 +1,30 @@
-using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using src.Data;
+using Microsoft.Extensions.Logging;
+using src.Repository;
 using src.Models;
 
 namespace src.Controllers
 {
     [ApiController]
-    [Route("piece")]
+    [Route("pieces")]
 
     public class PieceController : Controller
     {
         private readonly ILogger<PieceController> _logger;
-        private readonly ApiDbContext _context;
-
-        public PieceController(ILogger<PieceController> logger, ApiDbContext context)
+        private readonly PieceRepository _repository;
+        
+        public PieceController(
+            ILogger<PieceController> logger,
+            PieceRepository repository)
         {
             _logger = logger;
-            _context = context;
+            _repository = repository;
+        }
+
+        [HttpGet]
+        public IActionResult GetPieces()
+        {
+            return Ok(_repository.GetPieces());
         }    
     }
 

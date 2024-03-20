@@ -1,27 +1,23 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using src.Data;
 using src.Repository;
 using src.Models;
 
 namespace src.Controllers
 {
     [ApiController]
-    [Route("estimate")]
+    [Route("estimates")]
 
     public class EstimateController : Controller
     {
         private readonly ILogger<EstimateController> _logger;
-        private readonly ApiDbContext _context;
         private readonly EstimateRepository _repository;
 
         public EstimateController(
             ILogger<EstimateController> logger,
-            ApiDbContext context,
             EstimateRepository repository)
         {
             _logger = logger;
-            _context = context;
             _repository = repository;
         }
 
