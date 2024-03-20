@@ -4,10 +4,10 @@ using src.Context;
 
 namespace src.Repository
 {
-    public class PieceRepository
+    public class PieceRepository : IPieceRepository
     {
-        protected readonly ApiDbContext _context;
-        public PieceRepository(ApiDbContext context)
+        protected readonly IApiDbContext _context;
+        public PieceRepository(IApiDbContext context)
         {
             _context = context;
         }
@@ -18,10 +18,23 @@ namespace src.Repository
             {
                 PieceId = piece.PieceId,
                 Store = piece.Store,
-                NamePiece = piece.NamePiece
+                NamePiece = piece.NamePiece,
             });
 
             return pieces;
+        }
+
+        public PieceDto AddPiece(Piece piece)
+        {
+            _context.Pieces.Add(piece);
+            _context.SaveChanges();
+
+            throw new NotImplementedException();
+        }
+
+        public PieceDto UpdatePiece(Piece piece)
+        {
+            throw new NotImplementedException();
         }
     }
 }
