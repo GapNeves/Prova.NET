@@ -14,26 +14,20 @@ public class ApiDbContext : DbContext, IApiDbContext
 
     public ApiDbContext() {}
 
-    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-    {
-        // if (optionsBuilder.IsConfigured) return;
-    }
+    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder){}
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-        // Configuração da relação com Estimate
         modelBuilder.Entity<BudgetPart>()
             .HasOne(bp => bp.Estimate)
             .WithMany(e => e.BudgetParts)
             .HasForeignKey(bp => bp.EstimateId);
 
-        // Configuração da relação com Piece
         modelBuilder.Entity<BudgetPart>()
             .HasOne(bp => bp.Piece)
             .WithMany(p => p.BudgetParts)
             .HasForeignKey(bp => bp.PieceId);
         
-        // Configuração da relação entre Shift e Piece
         modelBuilder.Entity<Shift>()
             .HasOne(s => s.Piece)
             .WithMany(p => p.Shifts)
