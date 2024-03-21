@@ -25,7 +25,7 @@ namespace src.Controllers
         public IActionResult GetPieces()
         {
             return Ok(_repository.GetPieces());
-        }    
+        }
     }
 
 }

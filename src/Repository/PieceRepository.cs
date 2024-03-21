@@ -23,18 +23,5 @@ namespace src.Repository
 
             return pieces;
         }
-
-        public PieceDto AddPiece(Piece piece)
-        {
-            _context.Pieces.Add(piece);
-            _context.SaveChanges();
-
-            throw new NotImplementedException();
-        }
-
-        public PieceDto UpdatePiece(Piece piece)
-        {
-            throw new NotImplementedException();
-        }
     }
 }
